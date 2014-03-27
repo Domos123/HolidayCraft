@@ -67,7 +67,7 @@ public class HolidayCraft {
 		config.save();
 		BlockBauble.instance = new BlockBauble(baubleID);
 		BlockGift.instance = new BlockGift(giftID);
-		ItemRibbon.instance = new ItemRibbon(ribbonID);
+		ItemRibbon.instance = new ItemRibbon(ribbonID - 256);
 		GameRegistry.registerBlock(BlockBauble.instance, ItemBlockBauble.class);
 		GameRegistry.registerBlock(BlockGift.instance, "Gift");
 		GameRegistry.registerTileEntity(TileEntityBauble.class, "holidaycraft.bauble");
