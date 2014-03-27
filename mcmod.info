@@ -1,0 +1,17 @@
+[
+{
+  "modid": "holidaycraft",
+  "name": "HolidayCraft",
+  "description": "Adds a bunch of holiday themed items and blocks to the game.",
+  "version": "0.1a",
+  "mcversion": "1.6.4",
+  "logoFile": "",
+  "url": "http://mcp.ocean-labs.de/",
+  "updateUrl": "",
+  "authors": ["Domos123"],
+  "credits": "Made by Domos123",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
