@@ -87,25 +87,21 @@ public class BlockGift extends BlockContainer {
 	public boolean removeBlockByPlayer(World world, EntityPlayer player, int x, int y, int z){
 		TileEntityGift teGift = (TileEntityGift) world.getBlockTileEntity(x, y, z);
 		String name = player.getEntityName();
-
-		System.out.println(teGift.getSender());
-		System.out.println(teGift.getRecipient());
-		System.out.println(name);
 		
 		if (teGift.getSender() != null){
 			if (name.contentEquals(teGift.getSender())){
-				System.out.println("true");
 				return super.removeBlockByPlayer(world, player, x, y, z);
 			}
 		}
-		else if (teGift.getRecipient() != null){
+		if (teGift.getRecipient() != null){
         	if (name.contentEquals(teGift.getRecipient())){
-        		System.out.println("true");
         		return super.removeBlockByPlayer(world, player, x, y, z);
         	}
         }
-			System.out.println("false");
-        	return false;
+		if (player.capabilities.isCreativeMode){
+    		return super.removeBlockByPlayer(world, player, x, y, z);
+		}
+        return false;
 	}
 	
 	@Override

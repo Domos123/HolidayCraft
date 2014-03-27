@@ -37,7 +37,6 @@ public class ItemBlockBauble extends ItemBlock {
 	
 	@Override
 	public int getMetadata (int damageValue) {
-		System.out.println("Itemstack Metadata " + damageValue);
 		return damageValue;
 	}
 	

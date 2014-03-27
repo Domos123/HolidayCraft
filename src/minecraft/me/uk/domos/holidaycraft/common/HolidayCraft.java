@@ -62,11 +62,11 @@ public class HolidayCraft {
 		Configuration config = new Configuration(new File("config/holidaycraft.cfg"));
 		config.load();
 		baubleID = config.get("Blocks", "Bauble", 500).getInt();
-		giftID = config.get("Blocks", "Gift", 500).getInt();
+		giftID = config.get("Blocks", "Gift", 501).getInt();
 		ribbonID = config.get("Items", "Ribbon", 6000).getInt();
 		config.save();
-		BlockBauble.instance = new BlockBauble(baubleID + 256);
-		BlockGift.instance = new BlockGift(giftID + 256);
+		BlockBauble.instance = new BlockBauble(baubleID);
+		BlockGift.instance = new BlockGift(giftID);
 		ItemRibbon.instance = new ItemRibbon(ribbonID);
 		GameRegistry.registerBlock(BlockBauble.instance, ItemBlockBauble.class);
 		GameRegistry.registerBlock(BlockGift.instance, "Gift");
