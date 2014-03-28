@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.uk.domos.holidaycraft.common.HolidayCraft;
+import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

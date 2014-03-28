@@ -1,6 +1,6 @@
 package me.uk.domos.holidaycraft.item;
 
-import me.uk.domos.holidaycraft.common.HolidayCraft;
+import me.uk.domos.holidaycraft.HolidayCraft;
 import net.minecraft.item.Item;
 
 public class ItemRibbon extends Item {

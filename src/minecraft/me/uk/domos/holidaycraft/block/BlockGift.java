@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.uk.domos.holidaycraft.common.HolidayCraft;
+import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
 import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
 import net.minecraft.block.Block;
@@ -43,7 +43,6 @@ public class BlockGift extends BlockContainer {
 		setStepSound(soundClothFootstep);
 		setCreativeTab(HolidayCraft.tabHoliday);
 		setTextureName("holidaycraft:gift");
-		setLightOpacity(0);
 		setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.4F, 0.9F);
 	}
 

@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.uk.domos.holidaycraft.common.HolidayCraft;
+import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.container.ContainerGift;
 import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
 import net.minecraft.client.Minecraft;

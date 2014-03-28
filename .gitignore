@@ -18,6 +18,7 @@
 
 
 /src/minecraft/*
+/src/minecraft_server/*
 !/src/minecraft/assets/
 /src/minecraft/assets/forge
 !/src/minecraft/me/

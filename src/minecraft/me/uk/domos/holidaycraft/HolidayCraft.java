@@ -1,11 +1,11 @@
-package me.uk.domos.holidaycraft.common;
+package me.uk.domos.holidaycraft;
 
 import java.io.File;
 
-import me.uk.domos.holidaycraft.PacketHandler;
 import me.uk.domos.holidaycraft.block.BlockBauble;
 import me.uk.domos.holidaycraft.block.BlockGift;
 import me.uk.domos.holidaycraft.client.ClientProxy;
+import me.uk.domos.holidaycraft.common.CommonProxy;
 import me.uk.domos.holidaycraft.gui.GuiHandler;
 import me.uk.domos.holidaycraft.item.ItemBlockBauble;
 import me.uk.domos.holidaycraft.item.ItemRibbon;
