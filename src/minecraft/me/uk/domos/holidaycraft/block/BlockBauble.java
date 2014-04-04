@@ -9,6 +9,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
+import me.uk.domos.holidaycraft.util.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -51,11 +52,11 @@ public class BlockBauble extends Block {
 	
 	public BlockBauble(int par1) {
 		super(par1, Material.glass);
-		setUnlocalizedName("Bauble");
+		setUnlocalizedName("holidaycraft.bauble");
 		setHardness(0.2F);
 		setResistance(5.0F);
 		setStepSound(soundGlassFootstep);
-		setCreativeTab(HolidayCraft.tabHoliday);
+		setCreativeTab(RegistryHelper.tabHoliday);
 		setBlockBounds(0.29F, 0.5F, 0.29F, 0.71F, 0.95F, 0.71F);
 	}
 

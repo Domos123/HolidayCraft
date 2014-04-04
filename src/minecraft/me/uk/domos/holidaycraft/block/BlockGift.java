@@ -11,6 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
 import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
+import me.uk.domos.holidaycraft.util.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -37,11 +38,11 @@ public class BlockGift extends BlockContainer {
 	
 	public BlockGift(int par1) {
 		super(par1, Material.cloth);
-		setUnlocalizedName("Gift");
+		setUnlocalizedName("holidaycraft.gift");
 		setHardness(0.5F);
 		setResistance(50000.0F);
 		setStepSound(soundClothFootstep);
-		setCreativeTab(HolidayCraft.tabHoliday);
+		setCreativeTab(RegistryHelper.tabHoliday);
 		setTextureName("holidaycraft:gift");
 		setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.4F, 0.9F);
 	}

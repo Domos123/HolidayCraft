@@ -28,6 +28,7 @@ public class ItemBlockBauble extends ItemBlock {
 	public ItemBlockBauble(int par1) {
 		super(par1);
 		setHasSubtypes(true);
+		setMaxDamage(0);
 	}
 	
 	@Override
