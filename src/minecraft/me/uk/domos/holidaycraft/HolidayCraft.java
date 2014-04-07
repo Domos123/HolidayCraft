@@ -4,6 +4,7 @@ import java.io.File;
 
 import me.uk.domos.holidaycraft.client.ClientProxy;
 import me.uk.domos.holidaycraft.common.CommonProxy;
+import me.uk.domos.holidaycraft.util.PacketHandler;
 import me.uk.domos.holidaycraft.util.RegistryHelper;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -27,10 +28,10 @@ public class HolidayCraft {
 	
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
-		RegistryHelper.RegisterGUI();
-		RegistryHelper.RegisterContent();
-		RegistryHelper.RegisterNames();
-		RegistryHelper.RegisterRecipes();
+		RegistryHelper.registerGUI();
+		RegistryHelper.registerContent();
+		RegistryHelper.registerNames();
+		RegistryHelper.registerRecipes();
 		proxy.registerRenderInformation();
 	}
 

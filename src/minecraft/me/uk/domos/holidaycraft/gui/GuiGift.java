@@ -13,6 +13,7 @@ import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.container.ContainerGift;
 import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;

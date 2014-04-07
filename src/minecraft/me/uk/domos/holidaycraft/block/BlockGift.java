@@ -60,6 +60,12 @@ public class BlockGift extends BlockContainer {
 	}
 	
 	@Override
+	public boolean renderAsNormalBlock()
+	{
+	    return false;
+	}
+	
+	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack par6ItemStack) {
 	    int dir = MathHelper.floor_double((double) ((player.rotationYaw * 4F) / 360F) + 0.5D) & 3;
 	    world.setBlockMetadataWithNotify(x, y, z, dir, 0);

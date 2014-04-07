@@ -1,4 +1,4 @@
-package me.uk.domos.holidaycraft;
+package me.uk.domos.holidaycraft.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
