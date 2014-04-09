@@ -2,26 +2,23 @@ package me.uk.domos.holidaycraft.gui;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
+
+import me.uk.domos.holidaycraft.HolidayCraft;
+import me.uk.domos.holidaycraft.container.ContainerGift;
+import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.uk.domos.holidaycraft.HolidayCraft;
-import me.uk.domos.holidaycraft.container.ContainerGift;
-import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.network.packet.Packet250CustomPayload;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 
 @SideOnly(Side.CLIENT)
 public class GuiGift extends GuiContainer {

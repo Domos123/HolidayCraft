@@ -1,8 +1,5 @@
 package me.uk.domos.holidaycraft;
 
-import java.io.File;
-
-import me.uk.domos.holidaycraft.client.ClientProxy;
 import me.uk.domos.holidaycraft.common.CommonProxy;
 import me.uk.domos.holidaycraft.util.PacketHandler;
 import me.uk.domos.holidaycraft.util.RegistryHelper;
