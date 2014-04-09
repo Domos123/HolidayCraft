@@ -6,23 +6,22 @@ import me.uk.domos.holidaycraft.HolidayCraft;
 import me.uk.domos.holidaycraft.block.BlockBauble;
 import me.uk.domos.holidaycraft.block.BlockChineseLantern;
 import me.uk.domos.holidaycraft.block.BlockGift;
+import me.uk.domos.holidaycraft.block.BlockRibbon;
 import me.uk.domos.holidaycraft.block.BlockWreath;
 import me.uk.domos.holidaycraft.gui.GuiHandler;
 import me.uk.domos.holidaycraft.item.ItemBlockBauble;
 import me.uk.domos.holidaycraft.item.ItemFood;
-import me.uk.domos.holidaycraft.item.ItemRibbon;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
 import me.uk.domos.holidaycraft.tileentity.TileEntityChineseLantern;
 import me.uk.domos.holidaycraft.tileentity.TileEntityGift;
+import me.uk.domos.holidaycraft.tileentity.TileEntityRibbon;
 import me.uk.domos.holidaycraft.tileentity.TileEntityWreath;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -62,7 +61,7 @@ public class RegistryHelper {
 		LanguageRegistry.addName(new ItemStack(ItemFood.instance,1,1), "Easter Egg");
 		LanguageRegistry.addName(new ItemStack(ItemFood.instance,1,2), "Pancake");
 		LanguageRegistry.addName(new ItemStack(ItemFood.instance,1,3), "Candy Cane");
-		LanguageRegistry.addName(ItemRibbon.instance, "Ribbon");
+		LanguageRegistry.addName(BlockRibbon.instance, "Ribbon");
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabHoliday", "en_US", "HolidayCraft");
 		for (int ix = 0; ix < 16; ix++) {
 			ItemStack baubleStack = new ItemStack(BlockBauble.instance, 1, ix);
@@ -78,7 +77,7 @@ public class RegistryHelper {
 		giftID = config.get("Blocks", "Gift", 501).getInt();
 		lanternID = config.get("Blocks", "Chinese_Lantern", 502).getInt();
 		wreathID = config.get("Blocks", "Wreath", 503).getInt();
-		ribbonID = config.get("Items", "Ribbon", 6000).getInt();
+		ribbonID = config.get("Blocks", "Ribbon", 504).getInt();
 		foodID = config.get("Items", "Food", 6001).getInt();
 		config.save();
 
@@ -86,30 +85,31 @@ public class RegistryHelper {
 		BlockGift.instance = new BlockGift(giftID);
 		BlockChineseLantern.instance = new BlockChineseLantern(lanternID);
 		BlockWreath.instance = new BlockWreath(wreathID);
-
-		ItemRibbon.instance = new ItemRibbon(ribbonID - 256);
+		BlockRibbon.instance = new BlockRibbon(ribbonID);
+		
 		ItemFood.instance = new ItemFood(foodID - 256, 4, 0.3F, false);
 		
-		registerBlockIfNotNull(BlockBauble.instance, ItemBlockBauble.class, "Bauble");
+		GameRegistry.registerBlock(BlockBauble.instance, ItemBlockBauble.class, "Bauble");
 		registerBlockIfNotNull(BlockGift.instance, "Gift");
-		registerBlockIfNotNull(BlockChineseLantern.instance, "Chinese Lantern");
-		registerBlockIfNotNull(BlockWreath.instance, "Wreath");
-		
-		GameRegistry.registerItem(ItemRibbon.instance, "Ribbon", HolidayCraft.modid);
+		GameRegistry.registerBlock(BlockChineseLantern.instance, "Chinese Lantern");
+		GameRegistry.registerBlock(BlockWreath.instance, "Wreath");
+		GameRegistry.registerBlock(BlockRibbon.instance, "Ribbon");
 		GameRegistry.registerItem(ItemFood.instance, "Food", HolidayCraft.modid);
 		
 		GameRegistry.registerTileEntity(TileEntityBauble.class, "holidaycraft.bauble");
 		GameRegistry.registerTileEntity(TileEntityGift.class, "holidaycraft.gift");
 		GameRegistry.registerTileEntity(TileEntityChineseLantern.class, "holidaycraft.lantern");
 		GameRegistry.registerTileEntity(TileEntityWreath.class, "holidaycraft.wreath");
+		GameRegistry.registerTileEntity(TileEntityRibbon.class, "holidaycraft.ribbon");
 	}
 	
 	public static void registerRecipes(){
 
 		ItemStack glassStack = new ItemStack(Block.glass);
-		ItemStack ribbonStack = new ItemStack(ItemRibbon.instance);
+		ItemStack ribbonStack = new ItemStack(BlockRibbon.instance);
 		ItemStack stringStack = new ItemStack(Item.silk);
 		ItemStack woolStack = new ItemStack(Block.cloth);
+		ItemStack redWoolStack = new ItemStack(Block.cloth,1,14);
 		ItemStack paperStack = new ItemStack(Item.paper);
 		ItemStack chestStack = new ItemStack(Block.chest);
 		ItemStack eggStack = new ItemStack(Item.egg);
@@ -118,8 +118,10 @@ public class RegistryHelper {
 		ItemStack sugarStack = new ItemStack(Item.sugar);
 		ItemStack milkStack = new ItemStack(Item.bucketMilk);
 		ItemStack waterStack = new ItemStack(Item.bucketWater);
-		
-		GameRegistry.addRecipe(new ItemStack(ItemRibbon.instance,16), "  w", "www", "w  ", 'w', woolStack); //Ribbon
+		ItemStack glowStack = new ItemStack(Block.glowStone);
+
+		GameRegistry.addRecipe(new ItemStack(BlockRibbon.instance,16), "  w", "www", "w  ", 'w', woolStack); //Ribbon
+		GameRegistry.addRecipe(new ItemStack(BlockChineseLantern.instance,16), "wgw", "wgw", "wgw", 'w', redWoolStack, 'g', glowStack); //Chinese Lantern
 		GameRegistry.addRecipe(new ItemStack(BlockGift.instance,1), "prp", "rcr", "prp", 'p', paperStack, 'r', ribbonStack, 'c', chestStack); //Gift
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockWreath.instance, 3), "lrl", "r r", "lrl",'r', ribbonStack, 'l', "treeLeaves")); //Wreath
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemFood.instance,1,0), cookieStack, sugarStack, sugarStack, sugarStack); //Christmas Cookie

@@ -2,7 +2,9 @@ package me.uk.domos.holidaycraft.block;
 
 import java.util.List;
 
+import static net.minecraftforge.common.ForgeDirection.*;
 import me.uk.domos.holidaycraft.tileentity.TileEntityBauble;
+import me.uk.domos.holidaycraft.tileentity.TileEntityRibbon;
 import me.uk.domos.holidaycraft.util.RegistryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -81,14 +83,18 @@ public class BlockBauble extends Block {
 	@Override
 	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
     {
-        return par1World.isBlockFullCube(par2, par3 + 1, par4);
+        return par1World.isBlockFullCube(par2, par3 + 1, par4) || 
+        		par1World.isBlockSolidOnSide(par2, par3 + 1, par4, DOWN) || 
+        		(par1World.getBlockTileEntity(par2, par3 + 1, par4) instanceof TileEntityRibbon);
     }
 	
 	//If the block above this is gone, then poof!
 	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-        if (!par1World.isBlockFullCube(par2, par3 + 1, par4))
+        if (!par1World.isBlockFullCube(par2, par3 + 1, par4) && 
+        		!(par1World.getBlockTileEntity(par2, par3 + 1, par4) instanceof TileEntityRibbon) && 
+        		!par1World.isBlockSolidOnSide(par2, par3 + 1, par4, DOWN))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
             par1World.setBlockToAir(par2, par3, par4);

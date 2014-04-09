@@ -1,9 +1,6 @@
 package me.uk.domos.holidaycraft.block;
 
-import static net.minecraftforge.common.ForgeDirection.EAST;
-import static net.minecraftforge.common.ForgeDirection.NORTH;
-import static net.minecraftforge.common.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.ForgeDirection.WEST;
+import static net.minecraftforge.common.ForgeDirection.*;
 import cpw.mods.fml.common.Mod.Metadata;
 import me.uk.domos.holidaycraft.tileentity.TileEntityWreath;
 import me.uk.domos.holidaycraft.util.RegistryHelper;
