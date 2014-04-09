@@ -26,7 +26,6 @@ public class BlockRibbon extends Block {
 		setStepSound(soundClothFootstep);
 		setCreativeTab(RegistryHelper.tabHoliday);
 		setTextureName("holidaycraft:ribbon");
-		setLightValue(1.0F);
 		setCreativeTab(RegistryHelper.tabHoliday);
 	}
 	
