@@ -29,20 +29,28 @@ public class BlockRibbon extends Block {
 		setCreativeTab(RegistryHelper.tabHoliday);
 	}
 	
-	/*@Override //Selection box in correct place --- Too fiddly
+	@Override //Selection box in correct place
 	public void setBlockBoundsBasedOnState(IBlockAccess iblockaccess, int i, int j, int k){
 		if (iblockaccess.getBlockTileEntity(i, j, k) instanceof TileEntityRibbon){
 			TileEntityRibbon te = (TileEntityRibbon)iblockaccess.getBlockTileEntity(i, j, k);
 			int dip = te.getDip();
-			float maxy = (1.0f - (dip/16f));
-			float miny = ((15f/16f) - (dip/16f));
+			float maxy = (1.0f - (dip/16f) + (1f/16f));
+			float miny = ((15f/16f) - (dip/16f) - (1f/16f));
 			this.setBlockBounds(0.0F, miny, 0.0F, 1.0F, maxy, 1.0F);
 		}
-	}*/
+	}
 	
 	@Override //Prevent derpy collisions
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4){
-		return (AxisAlignedBB) null;
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int i, int j, int k){
+		if (par1World.getBlockTileEntity(i, j, k) instanceof TileEntityRibbon){
+			TileEntityRibbon te = (TileEntityRibbon)par1World.getBlockTileEntity(i, j, k);
+			int dip = te.getDip();
+			if (dip > 7){
+				return AxisAlignedBB.getBoundingBox(0.0,0.0,0.0,1.0,0.5,1.0);
+			}
+			return AxisAlignedBB.getBoundingBox(0.0,0.5,0.0,1.0,1.0,1.0);
+		}
+		return (AxisAlignedBB)null;
 	}
 	
 	@Override
